@@ -1,6 +1,6 @@
 {
-    "name": "alexa-vai/number-to-words",
-	"description": "Package for using in Laravel-5",
+    "name": "alex-vai/number-to-words",
+	"description": "Package for Laravel 5, to convert numbers to text",
     "type": "library",
 	"license": "MIT",
     "authors": [
