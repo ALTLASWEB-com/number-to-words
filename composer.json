@@ -1,0 +1,22 @@
+{
+    "name": "alexa-vai/number-to-words",
+	"description": "Package for using in Laravel-5",
+    "type": "library",
+	"license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Volokhin",
+            "email": "alexandr.volokhin@gmail.com"
+        }
+    ],
+	"minimum-stability": "stable",
+     "require": {
+        "php": ">=7.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Klisl\\Widgets\\": "src"
+        }
+    }
+    "require": {}
+}
