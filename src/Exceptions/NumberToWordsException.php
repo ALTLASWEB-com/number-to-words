@@ -11,7 +11,7 @@ namespace NumberToWords\Exceptions;
 
 use Exception;
 
-class LocaleWordsUndefinedException extends Exception
+class NumberToWordsException extends Exception
 {
 
 }

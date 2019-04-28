@@ -1,6 +1,6 @@
 # NumberToWords
 
-##Installation
+## Installation
   
   Add package to your composer.json
   ```
@@ -10,7 +10,7 @@
       }
   }
   ```
-##How to use number transformer
+## How to use number transformer
   
 Using preset locales
 ```php

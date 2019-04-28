@@ -8,7 +8,7 @@
 
 namespace NumberToWords;
 
-use NumberToWords\Exceptions\LocaleWordsUndefinedException;
+use NumberToWords\Exceptions\NumberToWordsException;
 use NumberToWords\Locale\Packages\LocalePackageAbstract;
 use NumberToWords\Locale\LocaleRepository;
 use NumberToWords\Locale\LocaleTransformer;
@@ -22,7 +22,7 @@ class NumberToWords
     /** @var Collection */
     private $localeWords;
 
-    public function __construct(string $locale)
+    public function __construct(string $locale = null)
     {
         $this->locale = $locale;
         $this->localeWords = new Collection();
@@ -31,18 +31,23 @@ class NumberToWords
     /**
      * @param $number
      * @return string
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function transform($number): string
     {
-        if ($this->localeWords->isEmpty()) {
+        if (!$this->locale && $this->localeWords->isEmpty()) {
+            throw new NumberToWordsException('Specify a preset locale or specify a locale words set!');
+        }
+
+        if ($this->locale) {
             if (!$localeWords = $this->getFromLocalePackage()) {
-                throw new LocaleWordsUndefinedException(
+                throw new NumberToWordsException(
                     sprintf("The configuration of words for the locale '%s' is not defined!", $this->locale)
                 );
             }
             $this->localeWords = new Collection($localeWords);
         }
+
         $localeTransformer = new LocaleTransformer(new LocaleRepository($this->localeWords));
         return $localeTransformer->toWords($number);
     }

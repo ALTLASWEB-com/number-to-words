@@ -10,7 +10,7 @@ namespace NumberToWords\Locale;
 
 
 use Illuminate\Support\Collection;
-use NumberToWords\Exceptions\LocaleWordsUndefinedException;
+use NumberToWords\Exceptions\NumberToWordsException;
 
 class LocaleRepository
 {
@@ -24,7 +24,7 @@ class LocaleRepository
 
     /**
      * @return array
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function getTenWords(): array
     {
@@ -33,7 +33,7 @@ class LocaleRepository
 
     /**
      * @return array
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function getHundredWords(): array
     {
@@ -42,7 +42,7 @@ class LocaleRepository
 
     /**
      * @return array
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function getTeenWords(): array
     {
@@ -51,7 +51,7 @@ class LocaleRepository
 
     /**
      * @return array
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function getTensWords(): array
     {
@@ -60,7 +60,7 @@ class LocaleRepository
 
     /**
      * @return string
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function getMinusWord(): string
     {
@@ -69,7 +69,7 @@ class LocaleRepository
 
     /**
      * @return array
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function getMega(): array
     {
@@ -78,7 +78,7 @@ class LocaleRepository
 
     /**
      * @return string
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     public function getZeroWord(): string
     {
@@ -88,12 +88,12 @@ class LocaleRepository
     /**
      * @param string $param
      * @return mixed
-     * @throws LocaleWordsUndefinedException
+     * @throws NumberToWordsException
      */
     protected function getLocaleWords(string $param)
     {
         if (!$value = $this->localeWords->get($param)) {
-            throw new LocaleWordsUndefinedException(
+            throw new NumberToWordsException(
                 sprintf("The value of word(s) is not found for the parameter '%s'", $param)
             );
         }
