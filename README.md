@@ -54,7 +54,7 @@ $localeWords = [
     ],
 ];
 
-$numberToWords = new NumberToWords($locale = 'gb');
+$numberToWords = new NumberToWords();
 $numberToWords->setLocaleWords(new Collection($localeWords));
 $numberTransformer = $numberToWords->transform(1458);
 ```
